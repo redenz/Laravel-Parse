@@ -59,9 +59,13 @@ class ParseServiceProvider extends ServiceProvider
      */
     protected function setupParse(Application $app)
     {
-        $config = $app->config->get('parse');
+//        $config = $app->config->get('parse');
 
-        ParseClient::initialize($config['app_id'], $config['rest_key'], $config['master_key']);
+        $app_id = env('PARSE_APP_ID');
+        $rest_key = env('PARSE_REST_KEY');
+        $master_key = env('PARSE_MASTER_KEY');
+
+        ParseClient::initialize($app_id, $rest_key, $master_key);
     }
 
     /**
