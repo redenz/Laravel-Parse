@@ -33,6 +33,8 @@ Once Laravel Parse is installed, you need to register the service provider. Open
 
 ## Configuration
 
+Changed this so you no longer need the config - set the keys in you .env file
+
 Laravel Parse requires configuration/
 
 To get started, you'll need to publish all vendor assets:

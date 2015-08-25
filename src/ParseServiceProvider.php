@@ -29,8 +29,6 @@ class ParseServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        $this->setupConfig();
-
         $this->setupParse($this->app);
     }
 
@@ -41,13 +39,6 @@ class ParseServiceProvider extends ServiceProvider
      */
     protected function setupConfig()
     {
-        $source = realpath(__DIR__.'/../config/parse.php');
-
-        if (class_exists('Illuminate\Foundation\Application', false)) {
-            $this->publishes([$source => config_path('parse.php')]);
-        }
-
-        $this->mergeConfigFrom($source, 'parse');
     }
 
     /**
@@ -59,7 +50,6 @@ class ParseServiceProvider extends ServiceProvider
      */
     protected function setupParse(Application $app)
     {
-//        $config = $app->config->get('parse');
 
         $app_id = env('PARSE_APP_ID');
         $rest_key = env('PARSE_REST_KEY');
